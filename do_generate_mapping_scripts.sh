@@ -1,6 +1,7 @@
 #contigs=~/genomes/contigs/hg19_contigs.txt
 #src_copy=/net/eichler/vol7/home/psudmant/genomes/index_files/mrsfast_hg19
 #index=/var/tmp/psudmant/mrsfast_hg19/hg19_masked
+#dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/kidd8/mapping
 #dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/hg19_1kg/
 
 #contigs=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/sequence_index_generation/contigs/merged_PB_gaps.contigs
@@ -8,15 +9,15 @@
 #index=/var/tmp/psudmant/merged_PB_gaps/merged_PB_gaps.fa
 #dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_additional_sequence/mapping_to_PB_gaps
 
-contigs=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/PB_gap_alternate_sequence_STR/contigs/merged_pacbio_gaps.contigs
-src_copy=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/PB_gap_alternate_sequence_STR/indexes/merged_pacbio_gaps_STR
-index=/var/tmp/psudmant/merged_pacbio_gaps_STR/merged_pacbio_gaps.fasta
-dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_additional_sequence/mapping_to_PB_gaps_STR/
+#contigs=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/PB_gap_alternate_sequence_STR/contigs/merged_pacbio_gaps.contigs
+#src_copy=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/PB_gap_alternate_sequence_STR/indexes/merged_pacbio_gaps_STR
+#index=/var/tmp/psudmant/merged_pacbio_gaps_STR/merged_pacbio_gaps.fasta
+#dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_additional_sequence/mapping_to_PB_gaps_STR/
 
-#contigs=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/contigs/NHP.contigs
-#src_copy=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/additional_sequence/NHP
-#index=/var/tmp/psudmant/NHP/NHP.fa
-#dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_additional_sequence/mapping_to_NHP_seq
+contigs=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/NHP_alternate_sequence/contigs/merged_nhp.contigs
+src_copy=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/NHP_alternate_sequence/indexes/merged_NHP
+index=/var/tmp/psudmant/merged_NHP/merged_nhp.fasta
+dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_additional_sequence/mapping_to_NHP/
 
 #dir=/net/eichler/vol19/projects/human_population_sequencing/nobackups/psudmant/human_diversity/mapping/Reich_11_A_team
 #dir=/net/eichler/vol19/projects/human_population_sequencing/nobackups/psudmant/human_diversity/mapping/Reich_14_B_team
@@ -47,18 +48,21 @@ dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_
 #for bam in `find ~/ev19/projects/apes/nobackups/psudmant/ape_mappings_to_species_refs/GORILLA/ | egrep "Gorilla_gorilla_gorilla-9752_Suzie.bam|Gorilla_gorilla_gorilla-A962_Amani.bam|Gorilla_gorilla_gorilla-B642_Akiba_Beri.bam|Gorilla_gorilla_gorilla-B643_Choomba.bam"`
 (
 #for bam in `find /net/eichler/vol23/projects/human_diversity/nobackups/PCR_free_genomes/20140203_broad_high_cov_pcr_free_BAMs -name *.bam`
-#for bam in `find /net/eichler/vol23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams -name *.bam | grep ADM_ACB_HG01879_M`
-#for bam in `find  /net/eichler/vol7/home/psudmant/ev20/projects/human_diversity_sequencing/nobackups/symlinked_bams/renamed_bams/ -name *.bam`
 #for bam in /net/eichler/vol19/projects/CHM1_project/nobackups/UWIllumina/chm1.bam
 #for bam in /net/eichler/vol20/projects/human_diversity_sequencing/nobackups/hg19_1kg/bam/hg19_36x.bam
-#for bam in /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/ADM_ACB_HG01879_M.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/ADM_ASW_NA19625_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/ADM_CLM_HG01112_M.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/ADM_MXL_NA19648_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/ADM_PEL_HG01565_M.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/ADM_PUR_HG01051_M.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/AFR_ESN_HG02922_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/AFR_GWD_HG02568_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/AFR_LWK_NA19017_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/AFR_MSL_HG03052_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/AFR_YRI_NA19238_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/AFR_YRI_NA19239_M.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/AFR_YRI_NA19240_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/EA_CDX_HG00759_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/EA_CHB_NA18525_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/EA_CHS_HG00419_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/EA_JPT_NA18939_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/EA_KHV_HG01595_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/SA_BEB_HG03006_M.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/SA_GIH_NA20845_M.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/SA_ITU_HG03742_M.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/SA_PJL_HG01583_M.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/SA_STU_HG03642_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/WEA_CEU_NA12878_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/WEA_CEU_NA12891_M.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/WEA_CEU_NA12892_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/WEA_FIN_HG00268_F.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/WEA_GBR_HG00096_M.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/WEA_IBS_HG01500_M.bam /net/eichler/vol7/home/psudmant/ev23/projects/human_diversity/nobackups/PCR_free_genomes/symlinked_bams/WEA_TSI_NA20502_F.bam  /net/eichler/vol7/home/psudmant/ev20/projects/human_diversity_sequencing/nobackups/hg19_1kg/bam/hg19_36x.bam /net/eichler/vol7/home/psudmant/ev20/projects/human_diversity_sequencing/nobackups/CHM1_washU/bam/washU_CHM1.bam /net/eichler/vol19/projects/CHM1_project/nobackups/UWIllumina/chm1.bam
+#for bam in `cat ./PCR_FREE | egrep -v "ADM_ASW_NA19625_F|ADM_MXL_NA19648_F|ADM_PEL_HG01565_M|ADM_PUR_HG01051_M|AFR_GWD_HG02568_F|AFR_MSL_HG03052_F|EA_CDX_HG00759_F|EA_KHV_HG01595_F|SA_GIH_NA20845_M"`
+#for bam in `find /net/eichler/vol7/home/psudmant/ev20/projects/human_diversity_sequencing/nobackups/symlinked_bams/renamed_bams/ -name *.bam | grep Polish`
+#for bam in /net/eichler/vol19/projects/CHM1_project/nobackups/Kidd8/ABC9.bam /net/eichler/vol19/projects/CHM1_project/nobackups/Kidd8/ABC10.bam /net/eichler/vol19/projects/CHM1_project/nobackups/Kidd8/ABC11.bam
+#for bam in /net/eichler/vol23/projects/human_diversity/nobackups/archaics_full_bams/Neanderthal/ARC_Neanderthal_NDL_F.bam
+#for bam in /net/eichler/vol23/projects/human_diversity/nobackups/archaics_full_bams/Denisova/ARC_Denisova_DNS_F.bam /net/eichler/vol23/projects/human_diversity/nobackups/archaics_full_bams/Neanderthal/ARC_Neanderthal_NDL_F.bam
+for bam in `find  /net/eichler/vol7/home/psudmant/ev20/projects/human_diversity_sequencing/nobackups/symlinked_bams/renamed_bams/ -name *.bam | egrep "WEA_IraqiJew_1771_F|OCN_Igorot_Igor21_M|WEA_Palestinian_HGDP00722_M|EA_Burmese_Bu5_M|SA_Sherpa_ADR2_F|SA_Tibetan_ADR4_F|AFR_mbuti_HGDP00474_M|OCN_Dusun_Dus16_F|AMR_Chane_TGBS21_M|WEA_Norwegian_NOR111_F|AFR_Igbo_NGIB042_F|SA_Sherpa_ADR1_M|SA_PunjabiPJL_HG02724_M|WEA_YemeniteJew_5433_M|WEA_FinlandFIN_HG00360_M"`
 do
     g=`echo $bam | awk -F '/' '{print $(NF)}' | sed 's/.bam//g'`
     outdir=$dir/$g/$g
     mkdir -p $outdir
 	ompi_server_file=$outdir/ompi_server_file.txt
 	#bam=`ls $dir/$g/$g/BAMs/*.bam`
-	python generate_mapping_scripts.py --contigs $contigs --src_copy $src_copy  --index $index --input_bam $bam --ompi_server_file $ompi_server_file --outdir $outdir --RUNNER_slots "50-50" --RUNNER_mfree "5G" --WRANGLER_mfree "20G"
+	python generate_mapping_scripts.py --contigs $contigs --src_copy $src_copy  --index $index --input_bam $bam --ompi_server_file $ompi_server_file --outdir $outdir --RUNNER_slots "50-50" --RUNNER_mfree "6G" --WRANGLER_mfree "10G"
 	#python generate_mapping_scripts.py --contigs $contigs --src_copy $src_copy  --index $index --input_bam $bam --ompi_server_file $ompi_server_file --outdir $outdir --RUNNER_slots "50-100" --RUNNER_mfree "5G" --WRANGLER_mfree "20G"
 	#echo 'sleep 2; pushd '$outdir'; bash do_map.sh; popd'
 	#echo 'pushd '$outdir'; bash do_map.sh; popd'
