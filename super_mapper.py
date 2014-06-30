@@ -70,9 +70,6 @@ def do_command(type,rank,proc_name,cmd):
 
 def READER_host_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_file,icomm_to_WRANGLER,chr=None):
     
-    #BLOCK_SIZE+
-    ###ASSUMING MAPPED READS - let's go CONTIG by CONTIG split up by n_redas
-    ###AND, assuming ~even mapping distribution
     chunk_size=READ_BLOCK_SIZE
     
     all_chunks = []
@@ -81,21 +78,6 @@ def READER_host_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_file,i
     turns out simple lineage run through is more than reasonable, 
     thus, "ALL"
     """
-    #for idx_l in pysam.idxstats(input_file):
-    #    contig,length,mapped,unmapped = idx_l.rstrip().split()
-    #    #if chr and not contig in chr: continue
-    #    length=int(length)
-    #    start = 0
-    #    end = min(start+chunk_size,length)
-    #    
-    #    while start<length:
-    #        all_chunks.append([contig,start,end])
-    #        start = end
-    #        end = min(start+chunk_size,length)
-
-    #st = "".join(["-" for i in xrange(80)])
-    #print "%s\n%d chunks to map...\n%s\n"%(st,len(all_chunks),st)    
-    
 
     ####
     all_chunks =  [["ALL",-1,01]]
