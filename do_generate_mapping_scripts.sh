@@ -1,6 +1,8 @@
-#contigs=~/genomes/contigs/hg19_contigs.txt
-#src_copy=/net/eichler/vol7/home/psudmant/genomes/index_files/mrsfast_hg19
-#index=/var/tmp/psudmant/mrsfast_hg19/hg19_masked
+contigs=~/genomes/contigs/hg19_contigs.txt
+src_copy=/net/eichler/vol7/home/psudmant/genomes/index_files/mrsfast_hg19
+index=/var/tmp/psudmant/mrsfast_hg19/hg19_masked
+
+dir=/net/eichler/vol19/projects/apes/nobackups/psudmant/ancient_genomes/UstIshim/mapping
 #dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/kidd8/mapping
 #dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/hg19_1kg/
 
@@ -14,10 +16,10 @@
 #index=/var/tmp/psudmant/merged_pacbio_gaps_STR/merged_pacbio_gaps.fasta
 #dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_additional_sequence/mapping_to_PB_gaps_STR/
 
-contigs=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/NHP_alternate_sequence/contigs/merged_nhp.contigs
-src_copy=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/NHP_alternate_sequence/indexes/merged_NHP
-index=/var/tmp/psudmant/merged_NHP/merged_nhp.fasta
-dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_additional_sequence/mapping_to_NHP/
+#contigs=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/NHP_alternate_sequence/contigs/merged_nhp.contigs
+#src_copy=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/NHP_alternate_sequence/indexes/merged_NHP
+#index=/var/tmp/psudmant/merged_NHP/merged_nhp.fasta
+#dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_additional_sequence/mapping_to_NHP/
 
 #dir=/net/eichler/vol19/projects/human_population_sequencing/nobackups/psudmant/human_diversity/mapping/Reich_11_A_team
 #dir=/net/eichler/vol19/projects/human_population_sequencing/nobackups/psudmant/human_diversity/mapping/Reich_14_B_team
@@ -55,7 +57,8 @@ dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_
 #for bam in /net/eichler/vol19/projects/CHM1_project/nobackups/Kidd8/ABC9.bam /net/eichler/vol19/projects/CHM1_project/nobackups/Kidd8/ABC10.bam /net/eichler/vol19/projects/CHM1_project/nobackups/Kidd8/ABC11.bam
 #for bam in /net/eichler/vol23/projects/human_diversity/nobackups/archaics_full_bams/Neanderthal/ARC_Neanderthal_NDL_F.bam
 #for bam in /net/eichler/vol23/projects/human_diversity/nobackups/archaics_full_bams/Denisova/ARC_Denisova_DNS_F.bam /net/eichler/vol23/projects/human_diversity/nobackups/archaics_full_bams/Neanderthal/ARC_Neanderthal_NDL_F.bam
-for bam in `find  /net/eichler/vol7/home/psudmant/ev20/projects/human_diversity_sequencing/nobackups/symlinked_bams/renamed_bams/ -name *.bam | egrep "WEA_IraqiJew_1771_F|OCN_Igorot_Igor21_M|WEA_Palestinian_HGDP00722_M|EA_Burmese_Bu5_M|SA_Sherpa_ADR2_F|SA_Tibetan_ADR4_F|AFR_mbuti_HGDP00474_M|OCN_Dusun_Dus16_F|AMR_Chane_TGBS21_M|WEA_Norwegian_NOR111_F|AFR_Igbo_NGIB042_F|SA_Sherpa_ADR1_M|SA_PunjabiPJL_HG02724_M|WEA_YemeniteJew_5433_M|WEA_FinlandFIN_HG00360_M"`
+#for bam in `find  /net/eichler/vol7/home/psudmant/ev20/projects/human_diversity_sequencing/nobackups/symlinked_bams/renamed_bams/ -name *.bam | egrep "WEA_IraqiJew_1771_F|OCN_Igorot_Igor21_M|WEA_Palestinian_HGDP00722_M|EA_Burmese_Bu5_M|SA_Sherpa_ADR2_F|SA_Tibetan_ADR4_F|AFR_mbuti_HGDP00474_M|OCN_Dusun_Dus16_F|AMR_Chane_TGBS21_M|WEA_Norwegian_NOR111_F|AFR_Igbo_NGIB042_F|SA_Sherpa_ADR1_M|SA_PunjabiPJL_HG02724_M|WEA_YemeniteJew_5433_M|WEA_FinlandFIN_HG00360_M"`
+for bam in /net/eichler/vol7/home/psudmant/ev19/projects/apes/nobackups/psudmant/ancient_genomes/UstIshim/hg19_1000g_bam/Ust_Ishim/Ust_Ishim.hg19_1000g.all.bam
 do
     g=`echo $bam | awk -F '/' '{print $(NF)}' | sed 's/.bam//g'`
     outdir=$dir/$g/$g
