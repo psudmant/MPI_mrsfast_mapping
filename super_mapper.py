@@ -221,13 +221,9 @@ def READER_client_extract_reads_from_bam(chr,start,end,bamfile,proc_name,myrank,
     if chr=="ALL":
         total_read_in = 0
         for l in bamfile.fetch(until_eof=True):
-            #print l
             total_read_in+=1
             n_to_do=l.rlen/s_sz
             
-            ##!!
-            #n_to_do = 1
-
             for k in xrange(n_to_do):
                 reads_block[curr_pos]=l.seq[(k*s_sz):(k*s_sz+s_sz)]
                 curr_pos+=1
@@ -237,8 +233,6 @@ def READER_client_extract_reads_from_bam(chr,start,end,bamfile,proc_name,myrank,
                 print reads_block
                 curr_pos=0
                 READER_client_SEND_READS(reads_block,SEND_BLOCK_SIZE,proc_name,myrank,comm,icomm_to_RUNNER)
-                ##!!
-                #    break
         
         if curr_pos!=0:
             small_reads_block = np.empty(curr_pos,dtype = dt)
