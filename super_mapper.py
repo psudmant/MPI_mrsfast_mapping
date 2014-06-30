@@ -262,12 +262,11 @@ def READER_client_extract_reads_from_bam(chr,start,end,bamfile,proc_name,myrank,
     print "READER CLIENT %s: %d FINISHED READING %s:%d-%d in %f seconds"%(proc_name,myrank,chr,start,end,time.time()-t)
     
 
-def READER_client_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_file,chr=None):
+def READER_client_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_files,chr=None):
     
     comm.send({"rank":my_rank,"proc_name":proc_name},dest=0, tag=TAG_READER_READY)
     done_running=False
 
-    bamfile=pysam.Samfile(input_file,'rb')
     
     while not done_running: 
         msg = comm.Iprobe(source=0,tag=MPI.ANY_TAG)
@@ -286,7 +285,9 @@ def READER_client_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_file
             elif status.tag==TAG_RUN_JOB:
                 print "READER CLIENT %s: rank %d will now run job - data: %s"%(proc_name,my_rank,data)
                 chr,start,end=data
-                READER_client_extract_reads_from_bam(chr,start,end,bamfile,proc_name,my_rank,comm,icomm_to_RUNNER)
+                for fn_bam in input_files:
+                    bamfile=pysam.Samfile(fn_bam,'rb')
+                    READER_client_extract_reads_from_bam(chr,start,end,bamfile,proc_name,my_rank,comm,icomm_to_RUNNER)
                 comm.send(dest=0,tag=TAG_DONE_JOB)
         #msg = comm.Iprobe(source=0,tag=MPI.ANY_TAG)
         #if msg:
@@ -295,7 +296,7 @@ def READER_client_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_file
         #    print "CLIENT %s: rank %d recieved a message - data: %s"%(proc_name,myrank,data)
     
 
-def READER(comm,my_rank,n_procs,proc_name,input_file,chr=None):
+def READER(comm,my_rank,n_procs,proc_name,input_files,chr=None):
 
     ###CREATE SOCKET
     reader_info = MPI.INFO_NULL
@@ -339,7 +340,7 @@ def READER(comm,my_rank,n_procs,proc_name,input_file,chr=None):
     if my_rank ==0:
         READER_host_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_file,icomm_to_WRANGLER,chr=None)
     else:
-        READER_client_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_file,chr=None)
+        READER_client_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_files,chr=None)
         #NOW THE READEr has COMMS to the Runner
         ##HERE, determine given K readers, what each will do... 
 
@@ -683,7 +684,7 @@ if __name__=="__main__":
     opts.add_option('','--task',dest='task',default=None)
     opts.add_option('','--chr',dest='chr',default=None)
     opts.add_option('','--src_type',dest='src_type',default="BAM")
-    opts.add_option('','--input',dest='input',default=None)
+    opts.add_option('','--input',dest='input_files',default=None)
     opts.add_option('','--work_dir',dest='work_dir',default='/var/tmp/')
     opts.add_option('','--index',dest='index',default=None)
     opts.add_option('','--mrsfast_binary',dest='mrsfast_binary',default=None)
@@ -710,8 +711,10 @@ if __name__=="__main__":
     print  "rank %d has started on proc %s"%(my_rank,proc_name)    
         
     if o.task.upper()=="READER":
+        input_files = o.input_files.rstrip(":").split(":")
         print "I AM A READER (%d - %s)"%(my_rank,proc_name)
-        READER(comm,my_rank,n_procs,proc_name,o.input,chr=o.chr)
+        print "READER SET TO PROCESS:\n %s \n(%d - %s)"%("n".join(input_files),my_rank,proc_name)
+        READER(comm,my_rank,n_procs,proc_name,o.input_files,chr=o.chr)
     
     if o.task.upper()=="RUNNER":
         print "I AM A RUNNER (%d - %s)"%(my_rank,proc_name)
