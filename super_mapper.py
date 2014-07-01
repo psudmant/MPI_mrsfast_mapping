@@ -714,7 +714,8 @@ if __name__=="__main__":
     if o.task.upper()=="READER":
         input_files = o.input_files.rstrip(":").split(":")
         print "I AM A READER (%d - %s)"%(my_rank,proc_name)
-        print "READER SET TO PROCESS:\n %s \n(%d - %s)"%("\n".join(input_files),my_rank,proc_name)
+        if my_rank !=0: 
+            print "READER SET TO PROCESS:\n %s \n(%d - %s)"%("\n".join(input_files),my_rank,proc_name)
         READER(comm,my_rank,n_procs,proc_name, input_files,chr=o.chr)
     
     if o.task.upper()=="RUNNER":
