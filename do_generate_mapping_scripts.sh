@@ -16,16 +16,10 @@ dir=/net/eichler/vol19/projects/apes/nobackups/psudmant/ancient_genomes/UstIshim
 #index=/var/tmp/psudmant/merged_pacbio_gaps_STR/merged_pacbio_gaps.fasta
 #dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_additional_sequence/mapping_to_PB_gaps_STR/
 
-#contigs=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/NHP_alternate_sequence/contigs/merged_nhp.contigs
-#src_copy=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/NHP_alternate_sequence/indexes/merged_NHP
-#index=/var/tmp/psudmant/merged_NHP/merged_nhp.fasta
-#dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_additional_sequence/mapping_to_NHP/
-
-#dir=/net/eichler/vol19/projects/human_population_sequencing/nobackups/psudmant/human_diversity/mapping/Reich_11_A_team
-#dir=/net/eichler/vol19/projects/human_population_sequencing/nobackups/psudmant/human_diversity/mapping/Reich_14_B_team
-#dir=/net/eichler/vol7/home/psudmant/ev19/projects/apes/nobackups/psudmant/sequence/GAGP_phase_II/Gorillas/mapping/
-#dir=/net/eichler/vol7/home/psudmant/ev20/projects/human_diversity_sequencing/nobackups/malay_genomes/mapping
-#dir=/net/eichler/vol23/projects/human_diversity/nobackups/PCR_free_genomes/mapping
+contigs=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/NHP_alternate_sequence/contigs/merged_nhp.contigs
+src_copy=/net/eichler/vol7/home/psudmant/public_html/WorldWide_SD_diversity/mapping_to_alternate_sequences/NHP_alternate_sequence/indexes/merged_NHP
+index=/var/tmp/psudmant/merged_NHP/merged_nhp.fasta
+dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_additional_sequence/mapping_to_NHP/
 
 #dir=~/ev20/projects/human_diversity_sequencing/nobackups/C_team/mapping
 #dir=/net/eichler/vol7/home/psudmant/ev19/projects/apes/nobackups/psudmant/sequence/GAGP_phase_II/Gorillas/mapping/
@@ -35,39 +29,19 @@ dir=/net/eichler/vol19/projects/apes/nobackups/psudmant/ancient_genomes/UstIshim
 #dir=/net/eichler/vol19/projects/apes/nobackups/psudmant/ancient_genomes/Loschbour/mapping
 #/net/eichler/vol22/projects/kidd8/nobackups/bam_samples
 
-#FAILURES
-#"LP6005519-DNA_A12|LP6005519-DNA_B08|LP6005519-DNA_C11|LP6005519-DNA_D10|LP6005519-DNA_E10|LP6005519-DNA_E11|LP6005519-DNA_F11|LP6005519-DNA_G02|LP6005519-DNA_G11|LP6005519-DNA_H04|LP6005592-DNA_C01|LP6005592-DNA_C02|LP6005592-DNA_C05|LP6005592-DNA_D03|LP6005592-DNA_E02|LP6005592-DNA_F03|LP6005592-DNA_G03|LP6005592-DNA_G05|LP6005592-DNA_H01|LP6005592-DNA_H03|LP6005619-DNA_B01|LP6005677-DNA_A02|LP6005677-DNA_A04|LP6005677-DNA_C04|LP6005677-DNA_D04|LP6005677-DNA_E03|LP6005677-DNA_F01|NA12878|NA18956|NA19238"
-#LP6005519-DNA_A12 LP6005519-DNA_B08 LP6005519-DNA_C11 LP6005519-DNA_D10 LP6005519-DNA_E10 LP6005519-DNA_E11 LP6005519-DNA_F11 LP6005519-DNA_G02 LP6005519-DNA_G11 LP6005519-DNA_H04 LP6005592-DNA_C01 LP6005592-DNA_C02 LP6005592-DNA_C05 LP6005592-DNA_D03 LP6005592-DNA_E02 LP6005592-DNA_F03 LP6005592-DNA_G03 LP6005592-DNA_G05 LP6005592-DNA_H01 LP6005592-DNA_H03 LP6005619-DNA_B01 LP6005677-DNA_A02 LP6005677-DNA_A04 LP6005677-DNA_C04 LP6005677-DNA_D04 LP6005677-DNA_E03 LP6005677-DNA_F01 NA12878 NA18956 NA19238
-
-#for bam in `cat /net/eichler/vol19/projects/apes/nobackups/psudmant/ancient_genomes/Loschbour/bams` 
-#for bam in `find /net/eichler/vol22/projects/kidd8/nobackups/bam_samples/ -name *.bam | egrep "NA12878|NA18956|NA19238"`
-#for bam in `find /net/eichler/vol22/projects/kidd8/nobackups/bam_samples/ -name *.bam | egrep "NA19238"`
-#for bam in `find /net/eichler/vol7/home/psudmant/ev20/projects/human_diversity_sequencing/nobackups/C_team_batch2_85 -name *.bam | egrep "LP6005519-DNA_A12|LP6005519-DNA_B08|LP6005519-DNA_C11|LP6005519-DNA_D10|LP6005519-DNA_E10|LP6005519-DNA_E11|LP6005519-DNA_F11|LP6005519-DNA_G02|LP6005519-DNA_G11|LP6005519-DNA_H04|LP6005592-DNA_C01|LP6005592-DNA_C02|LP6005592-DNA_C05|LP6005592-DNA_D03|LP6005592-DNA_E02|LP6005592-DNA_F03|LP6005592-DNA_G03|LP6005592-DNA_G05|LP6005592-DNA_H01|LP6005592-DNA_H03|LP6005619-DNA_B01|LP6005677-DNA_A02|LP6005677-DNA_A04|LP6005677-DNA_C04|LP6005677-DNA_D04|LP6005677-DNA_E03|LP6005677-DNA_F01|NA12878|NA18956|NA19238"`
-#for bam in `find $dir -name *.bam | egrep "Gorilla_beringei_beringei_Zirikana|Gorilla_beringei_beringei_Imfura|Gorilla_beringei_beringei_Tuck|Gorilla_beringei_graueri_Itebero|Gorilla_beringei_graueri_Ntabwoba|Gorilla_beringei_beringei_Kaboko"`
-#for bam in `find $dir -name *.bam | egrep "Tumani|Serufuli|Maisha|Tuck|Umurimo"`
-#for bam in `find $dir -name *.bam | egrep "Turimaso|Pinga|Dunia"`
 #for bam in `find $dir -name *.bam | egrep "Motala12"`
 #for bam in `find ~/ev19/projects/apes/nobackups/psudmant/ape_mappings_to_species_refs/GORILLA/ | egrep "Gorilla_gorilla_gorilla-9752_Suzie.bam|Gorilla_gorilla_gorilla-A962_Amani.bam|Gorilla_gorilla_gorilla-B642_Akiba_Beri.bam|Gorilla_gorilla_gorilla-B643_Choomba.bam"`
-(
-#for bam in `find /net/eichler/vol23/projects/human_diversity/nobackups/PCR_free_genomes/20140203_broad_high_cov_pcr_free_BAMs -name *.bam`
-#for bam in /net/eichler/vol19/projects/CHM1_project/nobackups/UWIllumina/chm1.bam
-#for bam in /net/eichler/vol20/projects/human_diversity_sequencing/nobackups/hg19_1kg/bam/hg19_36x.bam
-#for bam in `cat ./PCR_FREE | egrep -v "ADM_ASW_NA19625_F|ADM_MXL_NA19648_F|ADM_PEL_HG01565_M|ADM_PUR_HG01051_M|AFR_GWD_HG02568_F|AFR_MSL_HG03052_F|EA_CDX_HG00759_F|EA_KHV_HG01595_F|SA_GIH_NA20845_M"`
-#for bam in `find /net/eichler/vol7/home/psudmant/ev20/projects/human_diversity_sequencing/nobackups/symlinked_bams/renamed_bams/ -name *.bam | grep Polish`
-#for bam in /net/eichler/vol19/projects/CHM1_project/nobackups/Kidd8/ABC9.bam /net/eichler/vol19/projects/CHM1_project/nobackups/Kidd8/ABC10.bam /net/eichler/vol19/projects/CHM1_project/nobackups/Kidd8/ABC11.bam
-#for bam in /net/eichler/vol23/projects/human_diversity/nobackups/archaics_full_bams/Neanderthal/ARC_Neanderthal_NDL_F.bam
-#for bam in /net/eichler/vol23/projects/human_diversity/nobackups/archaics_full_bams/Denisova/ARC_Denisova_DNS_F.bam /net/eichler/vol23/projects/human_diversity/nobackups/archaics_full_bams/Neanderthal/ARC_Neanderthal_NDL_F.bam
-#for bam in `find  /net/eichler/vol7/home/psudmant/ev20/projects/human_diversity_sequencing/nobackups/symlinked_bams/renamed_bams/ -name *.bam | egrep "WEA_IraqiJew_1771_F|OCN_Igorot_Igor21_M|WEA_Palestinian_HGDP00722_M|EA_Burmese_Bu5_M|SA_Sherpa_ADR2_F|SA_Tibetan_ADR4_F|AFR_mbuti_HGDP00474_M|OCN_Dusun_Dus16_F|AMR_Chane_TGBS21_M|WEA_Norwegian_NOR111_F|AFR_Igbo_NGIB042_F|SA_Sherpa_ADR1_M|SA_PunjabiPJL_HG02724_M|WEA_YemeniteJew_5433_M|WEA_FinlandFIN_HG00360_M"`
-for bam in /net/eichler/vol7/home/psudmant/ev19/projects/apes/nobackups/psudmant/ancient_genomes/UstIshim/hg19_1000g_bam/Ust_Ishim/Ust_Ishim.hg19_1000g.all.bam
+
+bam_list=`cat /net/eichler/vol19/projects/apes/nobackups/psudmant/ancient_genomes/UstIshim/all_reads/all_bams.txt | tr '\n' ':'`
+(for bam in $bam_list 
 do
     g=`echo $bam | awk -F '/' '{print $(NF)}' | sed 's/.bam//g'`
+    g="ARC_UstIshim"
     outdir=$dir/$g/$g
     mkdir -p $outdir
 	ompi_server_file=$outdir/ompi_server_file.txt
-	#bam=`ls $dir/$g/$g/BAMs/*.bam`
-	python generate_mapping_scripts.py --contigs $contigs --src_copy $src_copy  --index $index --input_bam $bam --ompi_server_file $ompi_server_file --outdir $outdir --RUNNER_slots "50-50" --RUNNER_mfree "6G" --WRANGLER_mfree "10G"
+	python generate_mapping_scripts.py --contigs $contigs --src_copy $src_copy  --index $index --input_bam $bam --ompi_server_file $ompi_server_file --outdir $outdir --RUNNER_slots "100-150" --RUNNER_mfree "6G" --WRANGLER_mfree "15G"
+
 	#python generate_mapping_scripts.py --contigs $contigs --src_copy $src_copy  --index $index --input_bam $bam --ompi_server_file $ompi_server_file --outdir $outdir --RUNNER_slots "50-100" --RUNNER_mfree "5G" --WRANGLER_mfree "20G"
-	#echo 'sleep 2; pushd '$outdir'; bash do_map.sh; popd'
-	#echo 'pushd '$outdir'; bash do_map.sh; popd'
 	pushd $outdir; bash do_map.sh; popd
 done) | egrep -v "EEE_Lab"

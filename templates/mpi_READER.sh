@@ -57,9 +57,9 @@ echo "WHICH_PYTHON=$pversion"
 
 
 ompi_server_file=%(ompi_server_file)s
-bam_file=%(bam_file)s
+bam_files="%(bam_files)s"
 
 
 echo "running mpirun...next output should be from mpi.py"
-mpirun -x PATH -x LD_LIBRARY_PATH --prefix $MPIBASE -mca plm ^rshd -mca btl ^openib -n $NSLOTS --ompi-server file:$ompi_server_file   python /net/eichler/vol7/home/psudmant/EEE_Lab/projects/new_mapping_pipeline/super_mapper.py --task READER --input $bam_file
+mpirun -x PATH -x LD_LIBRARY_PATH --prefix $MPIBASE -mca plm ^rshd -mca btl ^openib -n $NSLOTS --ompi-server file:$ompi_server_file   python /net/eichler/vol7/home/psudmant/EEE_Lab/projects/new_mapping_pipeline/super_mapper.py --task READER --bam_inputs $bam_files
 

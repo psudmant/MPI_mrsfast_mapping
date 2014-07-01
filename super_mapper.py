@@ -68,7 +68,7 @@ def do_command(type,rank,proc_name,cmd):
 
     return ret_code
 
-def READER_host_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_file,icomm_to_WRANGLER,chr=None):
+def READER_host_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_files,icomm_to_WRANGLER,chr=None):
     
     chunk_size=READ_BLOCK_SIZE
     
@@ -286,6 +286,7 @@ def READER_client_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_file
                 print "READER CLIENT %s: rank %d will now run job - data: %s"%(proc_name,my_rank,data)
                 chr,start,end=data
                 for fn_bam in input_files:
+                    print "READER CLIENT %s: rank %d opening %s"%(proc_name,my_rank, fn_bam)
                     bamfile=pysam.Samfile(fn_bam,'rb')
                     READER_client_extract_reads_from_bam(chr,start,end,bamfile,proc_name,my_rank,comm,icomm_to_RUNNER)
                 comm.send(dest=0,tag=TAG_DONE_JOB)
@@ -338,7 +339,7 @@ def READER(comm,my_rank,n_procs,proc_name,input_files,chr=None):
     print "READER accepted communication (%d - %s)"%(my_rank,proc_name)
 
     if my_rank ==0:
-        READER_host_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_file,icomm_to_WRANGLER,chr=None)
+        READER_host_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_files,icomm_to_WRANGLER,chr=None)
     else:
         READER_client_loop(comm,icomm_to_RUNNER,my_rank,n_procs,proc_name,input_files,chr=None)
         #NOW THE READEr has COMMS to the Runner
@@ -684,7 +685,7 @@ if __name__=="__main__":
     opts.add_option('','--task',dest='task',default=None)
     opts.add_option('','--chr',dest='chr',default=None)
     opts.add_option('','--src_type',dest='src_type',default="BAM")
-    opts.add_option('','--input',dest='input_files',default=None)
+    opts.add_option('','--bam_inputs',dest='input_files',default=None)
     opts.add_option('','--work_dir',dest='work_dir',default='/var/tmp/')
     opts.add_option('','--index',dest='index',default=None)
     opts.add_option('','--mrsfast_binary',dest='mrsfast_binary',default=None)
@@ -713,8 +714,8 @@ if __name__=="__main__":
     if o.task.upper()=="READER":
         input_files = o.input_files.rstrip(":").split(":")
         print "I AM A READER (%d - %s)"%(my_rank,proc_name)
-        print "READER SET TO PROCESS:\n %s \n(%d - %s)"%("n".join(input_files),my_rank,proc_name)
-        READER(comm,my_rank,n_procs,proc_name,o.input_files,chr=o.chr)
+        print "READER SET TO PROCESS:\n %s \n(%d - %s)"%("\n".join(input_files),my_rank,proc_name)
+        READER(comm,my_rank,n_procs,proc_name, input_files,chr=o.chr)
     
     if o.task.upper()=="RUNNER":
         print "I AM A RUNNER (%d - %s)"%(my_rank,proc_name)
