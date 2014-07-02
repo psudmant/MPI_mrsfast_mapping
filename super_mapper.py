@@ -1,3 +1,9 @@
+"""
+(C) Peter H Sudmant 2012
+for information contact psudmant [a t] g.m.a.i.l
+use/edit/modify at your own risk
+"""
+
 from add_positions_to_vect import *
 import tables
 from kitz_wssd.wssd_common_v2 import *
