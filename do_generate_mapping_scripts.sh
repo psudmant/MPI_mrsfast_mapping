@@ -32,16 +32,22 @@ dir=/net/eichler/vol20/projects/human_diversity_sequencing/nobackups/mapping_to_
 #for bam in `find $dir -name *.bam | egrep "Motala12"`
 #for bam in `find ~/ev19/projects/apes/nobackups/psudmant/ape_mappings_to_species_refs/GORILLA/ | egrep "Gorilla_gorilla_gorilla-9752_Suzie.bam|Gorilla_gorilla_gorilla-A962_Amani.bam|Gorilla_gorilla_gorilla-B642_Akiba_Beri.bam|Gorilla_gorilla_gorilla-B643_Choomba.bam"`
 
-bam_list=`cat /net/eichler/vol19/projects/apes/nobackups/psudmant/ancient_genomes/UstIshim/all_reads/all_bams.txt | tr '\n' ':'`
+#bam_list=`cat /net/eichler/vol19/projects/apes/nobackups/psudmant/ancient_genomes/UstIshim/all_reads/all_bams.txt | tr '\n' ':'`
+
+bam_list=`find ~/ev23/projects/human_diversity/nobackups/archaics_full_bams/ -name *.bam | egrep "ARC_Stuttgart|ARC_Loschbour"`
+
 (for bam in $bam_list 
 do
+
     g=`echo $bam | awk -F '/' '{print $(NF)}' | sed 's/.bam//g'`
-    g="ARC_UstIshim"
+    #g="ARC_UstIshim"
+    g="ARC_${g}"
     outdir=$dir/$g/$g
     mkdir -p $outdir
 	ompi_server_file=$outdir/ompi_server_file.txt
-	python generate_mapping_scripts.py --contigs $contigs --src_copy $src_copy  --index $index --input_bam $bam --ompi_server_file $ompi_server_file --outdir $outdir --RUNNER_slots "100-150" --RUNNER_mfree "6G" --WRANGLER_mfree "15G"
+	python generate_mapping_scripts.py --contigs $contigs --src_copy $src_copy  --index $index --input_bam $bam --ompi_server_file $ompi_server_file --outdir $outdir --RUNNER_slots "100-100" --RUNNER_mfree "6G" --WRANGLER_mfree "15G"
 
 	#python generate_mapping_scripts.py --contigs $contigs --src_copy $src_copy  --index $index --input_bam $bam --ompi_server_file $ompi_server_file --outdir $outdir --RUNNER_slots "50-100" --RUNNER_mfree "5G" --WRANGLER_mfree "20G"
 	pushd $outdir; bash do_map.sh; popd
 done) | egrep -v "EEE_Lab"
+
