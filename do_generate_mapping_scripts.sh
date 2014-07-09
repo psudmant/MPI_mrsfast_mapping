@@ -28,6 +28,6 @@ do
     outdir=$dir/$sample/$g
     mkdir -p $outdir
 	ompi_server_file=$outdir/ompi_server_file.txt
-	python ~psudmant/EEE_Lab/projects/new_mapping_pipeline/generate_mapping_scripts.py --contigs $contigs --src_copy $src_copy  --index $index --input_bam $bam --ompi_server_file $ompi_server_file --outdir $outdir --RUNNER_slots "100-100" --RUNNER_mfree "6G" --WRANGLER_mfree "40G"
+	python ~psudmant/EEE_Lab/projects/new_mapping_pipeline/generate_mapping_scripts.py --contigs $contigs --src_copy $src_copy  --index $index --input_bam $bam --ompi_server_file $ompi_server_file --outdir $outdir --RUNNER_slots "20-45" --RUNNER_mfree "6G" --WRANGLER_mfree "40G"
 	pushd $outdir; bash do_map.sh; popd
 done < ${bam_list} | egrep "^([0-9]+){3}"
