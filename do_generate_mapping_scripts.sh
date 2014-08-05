@@ -5,6 +5,32 @@ contigs=~psudmant/genomes/contigs/hg19_contigs.txt
 src_copy=/net/eichler/vol7/home/psudmant/genomes/index_files/mrsfast_hg19
 index=/var/tmp/psudmant/mrsfast_hg19/hg19_masked
 
+# Get options from the user.
+while getopts :c:s:i: OPTION
+do
+  case $OPTION in
+    c)
+      contigs=$OPTARG
+      ;;
+    s)
+      src_copy=$OPTARG
+      ;;
+    i)
+      index=$OPTARG
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+
+shift $(($OPTIND-1))
+
 if [[ "$#" -ne "2" ]]
 then
     echo -e "Usage: $0 bam_list output_dir > job_id_triplets.txt\n"
