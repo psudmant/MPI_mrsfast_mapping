@@ -45,6 +45,9 @@ bam_list=$1
 # Define the output directory for wssd_out_files.
 dir=$2
 
+# Get the location of this script.
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 # Loop through a file of absolute paths to BAMs and generate a script for each
 # path. Scripts and output will be grouped by BAM name in the output directory.
 while read line
@@ -56,6 +59,6 @@ do
     outdir=$dir/$sample/$g
     mkdir -p $outdir
 	ompi_server_file=$outdir/ompi_server_file.txt
-	python ~psudmant/EEE_Lab/projects/new_mapping_pipeline/generate_mapping_scripts.py --contigs $contigs --src_copy $src_copy  --index $index --input_bam $bam --ompi_server_file $ompi_server_file --outdir $outdir --RUNNER_slots "20-50" --RUNNER_mfree "6G" --WRANGLER_mfree "40G"
+	python ~psudmant/EEE_Lab/projects/new_mapping_pipeline/generate_mapping_scripts.py --template_dir ${script_dir}/templates --contigs $contigs --src_copy $src_copy  --index $index --input_bam $bam --ompi_server_file $ompi_server_file --outdir $outdir --RUNNER_slots "20-50" --RUNNER_mfree "6G" --WRANGLER_mfree "40G"
 	pushd $outdir; bash do_map.sh; popd
 done < ${bam_list} | egrep "^([0-9]+){3}"
