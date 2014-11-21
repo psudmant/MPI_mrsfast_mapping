@@ -63,7 +63,7 @@ ompi_server_file=%(ompi_server_file)s
 src=%(src)s
 index=%(index)s
 contigs=%(contigs)s
-
+destination=$(dirname $(dirname %(index)s))
 
 #contigs=~/genomes/contigs/hg19_contigs.txt
 #src=/net/eichler/vol7/home/psudmant/genomes/index_files/mrsfast_hg19
@@ -71,7 +71,7 @@ contigs=%(contigs)s
 #src=/net/eichler/vol7/home/psudmant/genomes/index_files/mrsfast_smalltest
 #index=/var/tmp/psudmant/mrsfast_smalltest/chrY.fa.masked
 
-mpirun -x PATH -x LD_LIBRARY_PATH --prefix $MPIBASE -mca plm ^rshd -mca btl ^openib -n $NSLOTS python /net/eichler/vol7/home/psudmant/EEE_Lab/projects/batch_node_copy/code/batch_node_copy.py  --source $src --dest /var/tmp/psudmant --pre_sync_commands "mkdir /var/tmp/psudmant; chgrp -R eichlerlab /var/tmp/psudmant; chmod g+rw -R /var/tmp/psudmant" --post_sync_commands "chgrp -R eichlerlab /var/tmp/psudmant;chmod g+w -R /var/tmp/psudmant"
+mpirun -x PATH -x LD_LIBRARY_PATH --prefix $MPIBASE -mca plm ^rshd -mca btl ^openib -n $NSLOTS python /net/eichler/vol7/home/psudmant/EEE_Lab/projects/batch_node_copy/code/batch_node_copy.py  --source $src --dest $destination --pre_sync_commands "mkdir $destination; chgrp -R eichlerlab $destination; chmod g+rw -R $destination" --post_sync_commands "chgrp -R eichlerlab $destination;chmod g+w -R $destination"
 
 echo "running mpirun...next output should be from super_mapper.py"
 mpirun -x PATH -x LD_LIBRARY_PATH --prefix $MPIBASE -mca plm ^rshd -mca btl ^openib -n $NSLOTS --ompi-server file:$ompi_server_file    python /net/eichler/vol7/home/psudmant/EEE_Lab/projects/new_mapping_pipeline/super_mapper.py --task RUNNER --index $index --mrsfast_binary /net/eichler/vol7/home/psudmant/EEE_Lab/projects/mrsfast/READ_PATCHED_mrsfast-2.5.0.4/mrsfast --mrsfast_opts "-n 0 -e 2 --crop 36" --contigs $contigs 
